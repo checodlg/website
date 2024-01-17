@@ -34,9 +34,28 @@ class WebsiteInteractivity {
 
     handleFormSubmit(event) {
         event.preventDefault();
-        // Add logic to handle form data, e.g., using Fetch API to send data
-        console.log('Form Submitted');
-        this.displayAlert('Thank you for your message!', 'success');
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
+    
+        fetch('/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log('Success:', data);
+            this.displayAlert('Message sent successfully', 'success');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            this.displayAlert('Error sending message', 'error');
+        });
     }
 
     filterPortfolioItems(event) {
