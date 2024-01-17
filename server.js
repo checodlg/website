@@ -6,8 +6,8 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'your-email@gmail.com',
-        pass: 'your-password' // It's recommended to use environment variables or OAuth2 for security
+        user: 'sergiodlgca@gmail.com',
+        pass: 'Checo000999!' // It's recommended to use environment variables or OAuth2 for security
     }
 });
 
