@@ -1,4 +1,4 @@
-require('dotenv').config(); // at the top of your file to use dotenv
+require('dotenv').config();
 
 const express = require('express');
 const nodemailer = require('nodemailer');
@@ -10,7 +10,7 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.EMAIL, // Use environment variables
+        user: process.env.EMAIL,
         pass: process.env.PASSWORD
     }
 });
